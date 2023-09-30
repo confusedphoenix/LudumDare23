@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Animator anim;
+    public GameObject enlargeParticle;
 
     [Header("Scale")]
     public Vector3 shrinkScale;
@@ -69,6 +70,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Enlarge");
             //transform.localScale = enlargeScale;
+            enlargeParticle.SetActive(false);
+            enlargeParticle.SetActive(true);
             anim.Play("player_enlarge");
             isShrinking = false;
             isEnlarged = true;
@@ -89,7 +92,6 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            Debug.Log("keyup");
             //anim.Play("player_enlargeReverse");
             enlargeCountdown = 1.5f;
             isEnlarged = false;
@@ -146,6 +148,7 @@ public class PlayerController : MonoBehaviour
                 //enlargeCountdown = 1.5f;
                 //transform.localScale = baseScale;
                 anim.Play("player_enlargeReverse");
+                enlargeParticle.SetActive(false);
                 enlargeTimer = 0;
                 enlargeCountdown = 1.5f;
                 isEnlarged = false;
