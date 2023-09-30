@@ -118,7 +118,8 @@ public class PlayerController : MonoBehaviour
             {
                 isShrinking = false;
                 shrinkTimer = 0;
-                transform.localScale = baseScale;
+                anim.Play("player_shrinkReverse");
+                //transform.localScale = baseScale;
             }
         }
         else

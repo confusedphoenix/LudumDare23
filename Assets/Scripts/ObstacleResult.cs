@@ -7,7 +7,6 @@ public class ObstacleResult : MonoBehaviour
     public WinLoseState gameState;
     public PlayerController player;
 
-
     void Start()
     {
         gameState = Object.FindObjectOfType<WinLoseState>();
